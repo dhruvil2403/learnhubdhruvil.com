@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnHubDhruvil.com | Empowering Education</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo-container">
+            <!-- Here is the path to your logo next to the domain name -->
+            <img src="LOGO.png" alt="LearnHub Logo" class="logo">
+            <span class="domain-name">LearnHubDhruvil.com</span>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="/boards/maharashtra/mhboard.html">MH Board</a></li>
+                <li><a href="/boards/cbse/cbse.html">CBSE</a></li>
+                <li><button id="theme-toggle">🌙 Dark Mode</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Animated Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="animate-title">Welcome to the Future of Learning</h1>
+            <p>Interactive, dynamic, and personalized education for every board.</p>
+        </div>
+    </section>
+
+    <!-- Boards Section -->
+    <section class="boards-section">
+        <h2>Select Your Board</h2>
+        <div class="boards-wrapper">
+            <div class="boards-container">
+                <button class="board-btn" onclick="window.location.href='/boards/maharashtra/mhboard.html'">MH Board</button>
+                <button class="board-btn" onclick="window.location.href='/boards/cbse/cbse.html'">CBSE Board</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Characteristics Section -->
+    <section class="features-section" id="features">
+        <h2 class="section-title">Why Choose LearnHub?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>100% Free</h3>
+                <p>Access all our premium content without spending a dime.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Detailed PDFs</h3>
+                <p>Comprehensive and easy-to-read PDF materials for every subject.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Short Notes</h3>
+                <p>Quick revision notes designed for efficient exam preparation.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Math Solutions</h3>
+                <p>Step-by-step mathematical solutions to help you ace your exams.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-section" id="about">
+        <h2 class="section-title">About Us</h2>
+        <p>Welcome to LearnHubDhruvil.com, your number one source for quality education. We're dedicated to giving you the very best of learning resources, with a focus on dependability, student success, and clarity.</p>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section class="contact-section" id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <p>Have questions? We'd love to hear from you.</p>
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
