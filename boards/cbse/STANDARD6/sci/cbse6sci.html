@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnHubDhruvil.com | CBSE Class 6 Science</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        /* YouTube-Style Grid CSS */
+        .pdf-section {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .pdf-section h2 {
+            color: var(--text-heading);
+            margin-bottom: 30px;
+            font-size: 2rem;
+            text-align: left;
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .video-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .video-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .thumbnail {
+            height: 180px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+        }
+        .info {
+            padding: 15px;
+        }
+        .info h3 {
+            margin: 0 0 10px 0;
+            color: var(--text-heading);
+            font-size: 1.1rem;
+            line-height: 1.4;
+        }
+        .info p {
+            margin: 0;
+            color: var(--text-main);
+            font-size: 0.9rem;
+        }
+
+        /* Full-Screen PDF Modal */
+        .pdf-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            backdrop-filter: blur(10px);
+        }
+        .modal-content {
+            position: relative;
+            width: 90%;
+            height: 90%;
+            margin: 2.5% auto;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10000;
+            transition: color 0.3s;
+        }
+        .close-btn:hover {
+            color: #ff4c4c;
+        }
+        .pdf-viewer-container {
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            background-color: #e4e4e4;
+        }
+        .pdf-viewer-container canvas {
+            display: block;
+            margin: 20px auto;
+            max-width: 95%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            pointer-events: none; /* Prevents long-press save image on mobile */
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;"> <!-- Prevents right click on the entire page -->
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo-container">
+            <img src="/LOGO.png" alt="LearnHub Logo" class="logo">
+            <span class="domain-name">LearnHubDhruvil.com</span>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/boards/maharashtra/mhboard.html">MH Board</a></li>
+                <li><a href="/boards/cbse/cbse.html">CBSE</a></li>
+                <li><button id="theme-toggle">🌙 Dark Mode</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Video/PDF Grid Section -->
+    <section class="pdf-section">
+        <h2>CBSE Class 6 Science - Chapters</h2>
+        <div class="video-grid">
+            
+            <!-- Chapter 1 Card -->
+            <div class="video-card" onclick="openPDF('../sci/CHAPTER 1.pdf')">
+                <div class="thumbnail">📄CHAPTER 1 :- The Wonderful World of Science </div>
+                <div class="info">
+                    <h3>Chapter 1: Food: Where Does It Come From?</h3>
+                    <p>LearnHub Science • Complete Notes</p>
+                </div>
+            </div>
+
+            <!-- Chapter 2 Card -->
+            <div class="video-card" onclick="openPDF('../sci/CHAPTER 2.pdf'')">
+                <div class="thumbnail">📄CHAPTER  2:- DIVERSITY IN THE LIVING WORLD 
+</div>
+                <div class="info">
+                    <h3>Chapter 2: Components of Food</h3>
+                    <p>LearnHub Science • Complete Notes</p>
+                </div>
+            </div>
+
+            <!-- Chapter 3 Card -->
+            <div class="video-card" onclick="openPDF('../sci/CHAPTER  3.pdf')">
+                <div class="thumbnail">📄MINDFUL EATING: A PATH  TO A HEALTHY BODY 
+</div>
+                <div class="info">
+                    <h3>Chapter 3: Fibre to Fabric</h3>
+                    <p>LearnHub Science • Complete Notes</p>
+                </div>
+            </div>
+
+                <div class="video-card" onclick="openPDF('../sci/CHAPTER 4.pdf')">
+                <div class="thumbnail">📄 CHAPTER 4 :- Exploring Magnets</div>
+                <div class="info">
+                    <h3>Chapter 3: Fibre to Fabric</h3>
+                    <p>LearnHub Science • Complete Notes</p>
+                </div>
+            </div>
+            <!-- You can add more cards dynamically here following the same structure -->
+
+        </div>
+    </section>
+
+    <!-- PDF Viewer Modal -->
+    <div id="pdf-modal" class="pdf-modal">
+        <span class="close-btn" onclick="closePDF()">&times;</span>
+        <div class="modal-content">
+            <div id="pdf-viewer-container" class="pdf-viewer-container">
+                <!-- Canvases will be injected here to replace the native iframe viewer -->
+            </div>
+        </div>
+    </div>
+
+    <script src="/script.js"></script>
+    <!-- Include PDF.js library to render PDFs into Canvases (Bypasses Browser PDF Viewer) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <script>
+        // Setup PDF.js worker
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
+
+        // PDF Modal Logic
+        function openPDF(pdfFile) {
+            const modal = document.getElementById('pdf-modal');
+            const container = document.getElementById('pdf-viewer-container');
+            
+            container.innerHTML = '<h3 style="text-align:center; margin-top:20px; color:var(--text-heading);">Loading PDF...</h3>';
+            modal.style.display = "block";
+
+            // Render PDF directly to canvases to completely eliminate the native download button
+            pdfjsLib.getDocument(pdfFile).promise.then(async pdf => {
+                container.innerHTML = ''; // Clear loading text
+                
+                // Loop through and render all pages sequentially
+                for(let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+                    const page = await pdf.getPage(pageNum);
+                    const viewport = page.getViewport({ scale: 1.5 });
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    
+                    canvas.height = viewport.height;
+                    canvas.width = viewport.width;
+                    container.appendChild(canvas);
+                    
+                    await page.render({ canvasContext: ctx, viewport: viewport }).promise;
+                }
+            }).catch(error => {
+                container.innerHTML = '<h3 style="text-align:center; margin-top:20px; color:red;">Error loading PDF.</h3>';
+                console.error("Error loading PDF:", error);
+            });
+        }
+
+        function closePDF() {
+            const modal = document.getElementById('pdf-modal');
+            const container = document.getElementById('pdf-viewer-container');
+            container.innerHTML = ''; // Clear rendered pages
+            modal.style.display = "none";
+        }
+
+        // Strict Security Scripts
+        document.addEventListener('keydown', function(e) {
+            // Disable Ctrl+S (Save), Ctrl+P (Print), Ctrl+U (View Source)
+            if (e.ctrlKey && (e.key === 'p' || e.key === 's' || e.key === 'u' || e.key === 'P' || e.key === 'S' || e.key === 'U')) {
+                e.preventDefault();
+                alert("Security measure: Printing and saving are disabled on this page.");
+            }
+            // Disable F12 (Developer Tools)
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J'))) {
+                e.preventDefault();
+                alert("Security measure: Developer tools are disabled.");
+            }
+        });
+
+        // Prevent Copying text
+        document.addEventListener('copy', function(e) {
+            e.preventDefault();
+            alert("Security measure: Copying text is disabled.");
+        });
+    </script>
+</body>
+</html>
